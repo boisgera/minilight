@@ -22,8 +22,9 @@ jobs:
       # Build
       # ----------------------------------------------------------------------
       - run: python minilight.py cornellbox.ml.txt
+      - run: python minilight.py cornellbox2.ml.txt
       - run: mkdir -p images
-      - run: mv cornellbox.ml.txt.ppm images/.
+      - run: mv *.ppm images/.
 
       # Deploy to gh-pages
       # ----------------------------------------------------------------------
