@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   main:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash -l {0} 
@@ -19,12 +19,18 @@ jobs:
           activate-environment: minilight
           environment-file: environment.yml
 
+      # ------------------------------------------------------------------------
+        
+      - name:
+        run: sudo apt-get update && sudo-get upgrade && sudo apt-get install imagemagick
+
       # Build
       # ----------------------------------------------------------------------
       - run: python minilight.py cornellbox.ml.txt
       - run: python minilight.py cornellbox2.ml.txt
       - run: mkdir -p images
       - run: mv *.ppm images/.
+      - run: cd images && convert cornellbox.ml.txt.ppm cornellbox.ml.txt.png && convert cornellbox2.ml.txt.ppm cornellbox2.ml.txt.png
 
       # Deploy to gh-pages
       # ----------------------------------------------------------------------
