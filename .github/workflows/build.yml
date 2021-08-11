@@ -22,7 +22,7 @@ jobs:
       # ------------------------------------------------------------------------
         
       - name:
-        run: sudo apt-get update && sudo-get upgrade && sudo apt-get install imagemagick
+        run: sudo apt-get update && sudo apt-get upgrade && sudo apt-get install imagemagick
 
       # Build
       # ----------------------------------------------------------------------
